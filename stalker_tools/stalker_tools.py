@@ -4,13 +4,19 @@
 A Stalker tool
 '''
 
-import os
 import json
+import os
 import requests
 import subprocess
 from configobj import ConfigObj
 
-# CONFIG = ConfigObj('/etc/.../stalker_tools.conf')
+# CONFIG = ConfigObj('//.../stalker_tools.conf')
+
+def path_expanduser(path='~/'):
+    '''
+    Return the user folder path
+    '''
+    return os.path.expanduser(path)
 
 def bash(cmd=None):
     '''
@@ -66,7 +72,6 @@ class StalkerTools():
     domain_list : list
         the string contains the password value.
     '''
-
     def __init__(self, domain_list):
         # import pdb; pdb.set_trace()
         return self
