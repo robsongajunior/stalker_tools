@@ -7,9 +7,36 @@ A Stalker tool
 import os
 import json
 import requests
+import subprocess
 from configobj import ConfigObj
 
-CONFIG = ConfigObj('/etc/.../stalker_tools.conf')
+# CONFIG = ConfigObj('/etc/.../stalker_tools.conf')
+
+def bash(cmd=None):
+    '''
+    bash function to execute pure bash commands
+    
+    Parameters
+    ----------
+    cmd : str
+        the string value with the bash line code
+    '''
+    if not isinstance(cmd, str):
+        return
+    return subprocess.check_output(cmd, shell=True)
+
+def cmd_host(domain=None):
+    '''
+    bash function to execute pure bash commands
+    
+    Parameters
+    ----------
+    domain : str
+        domain string
+    '''
+    if not isinstance(domain, str):
+        return
+    return bash('host {}'.format(domain))
 
 class StalkerTools():
     '''
@@ -21,6 +48,6 @@ class StalkerTools():
         the string contains the password value.
     '''
 
-	def __init__(self, domain_list):
+    def __init__(self, domain_list):
         # import pdb; pdb.set_trace()
-		return self
+        return self
