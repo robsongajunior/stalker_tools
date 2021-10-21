@@ -4,6 +4,13 @@
 A Stalker tool
 '''
 
+import os
+import json
+import requests
+from configobj import ConfigObj
+
+CONFIG = ConfigObj('/etc/azion/stalker_tools.conf')
+
 class StalkerTools():
     '''
     StalkerTools class to facilitate api manipulation
